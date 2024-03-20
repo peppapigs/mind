@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace扫描mapper层的接口-->
+<!--namespace和里面标签的id两者都是为了动态代理而需要的-->
+<mapper namespace="com.xg.mapper.LoginMapper">
+    <!--定义接口方法对应的 SQL 语句-->
+
+<!--    id与接口中的方法名一致, resultType是返回结果-->
+    <select id="findAll" resultType="User">
+        select uid, username, email from user
+    </select>
+
+    <!--
+    	#{}对应的是entity层实体类的属性名"abcDe"对应的"getAbcDe"的"abcDe"(驼峰命名规范)
+    	想简单点，对应属性名就行，复杂可能会乱ovo
+    -->
+    <insert id="insert">
+        insert into user(username, password, email)
+         values(#{username}, #{password}, #{email})
+    </insert>
+    <update id="update">
+-- 单独set一个table字段不会导致其他字段被赋值为空
+        update user set
+                username = #{newUsername}
+                where username = #{oldUsername}
+    </update>
+    <delete id="delete">
+        delete from user where username = #{username}
+    </delete>
+</mapper>
