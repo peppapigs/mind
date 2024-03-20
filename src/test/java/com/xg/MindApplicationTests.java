@@ -31,4 +31,7 @@ public class MindApplicationTests {
 
         loginMapper.insert(user);
     }
+
+
+
 }
