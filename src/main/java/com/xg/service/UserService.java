@@ -3,6 +3,8 @@ package com.xg.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xg.entity.User;
 
+import java.util.List;
+
 /**
  * operation of table user from db => service
  * 针对user表的数据库service操作
@@ -12,4 +14,17 @@ import com.xg.entity.User;
  * Mybatis-Plus 提供的基类
  */
 public interface UserService extends IService<User> {
+
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    public List<User> getAll();
+    /**
+     * 更新名字通过邮箱
+     * @param user
+     * @return
+     */
+    public String updateNameByEmail(User user);
 }

@@ -3,6 +3,8 @@ server:
 logging:
   level:
     com.xg: debug
+#   for printURI<=o.s.web.servlet.DispatcherServlet
+    web: debug
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
