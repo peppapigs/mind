@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * DB TableName: user
  */
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 //@ToString
 @TableName(value = "user")
-public class User {
+public class User implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Integer uid;
