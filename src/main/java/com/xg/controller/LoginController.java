@@ -23,4 +23,10 @@ public class LoginController {
    public String updateNameByEmail(@RequestBody User user){
       return userService.updateNameByEmail(user);
    }
+
+   @GetMapping("/add")
+   public boolean add(User user) {
+
+      return userService.save(user);
+   }
 }

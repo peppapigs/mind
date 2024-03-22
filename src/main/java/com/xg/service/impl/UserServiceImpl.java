@@ -21,6 +21,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+    /*@mapper*/
     @Autowired
     UserMapper userMapper;
 
@@ -42,10 +43,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 user,
                 new UpdateWrapper<User>()
                         .like("email", "gmail")
-                        .set("username", "小伙子"));
-        if(update > 0)
-            return "updated!";
-        else
-            return "updated failed!";
+                        .set("username", "小伙子")
+        );
+
+        return update > 0 ? "updated!" : "updated failed!";
     }
 }
